@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Events Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        .layout-container{
+            width: min(1000px,100%);
+            margin: 0 auto;
+            columns: 3 300px;
+            column-gap: 1em;
+        }
+        img{
+            display: block;
+            margin-bottom: 1em;
+            width: 100%;
+            border-radius: 15px;
+            transition-timing-function: ease-in-out;
+            transition-duration: 500ms;
+        }
+        img:hover{
+            box-shadow:  0px 0px 15px  rgba(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    
+<!-- navbar -->
+    <nav class="navbar">
+        <h2>Dream Events</h2>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="./landingpage.html">Home</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="./events.html">Events</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="page-heading clr-darkpink">Gallery</h1>
+
+    <!-- image stats here -->
+<div class="layout-container">
+    <img src="./images/bday4.jpg" alt="" width="300px">
+    <img src="./images/bday1.jpg" alt="" width="300px">
+    <img src="./images/bday3.jpg" alt="" width="300px">
+    <img src="./images/categories_1.webp" alt="" width="300px">
+    <img src="./images/contcat.jpg" alt="" width="300px">
+    <img src="./images/mrg9.png" alt="" width="300px">
+    <img src="./images/mrg7.jpg" alt="" width="300px">
+    <img src="./images/mrg5.jpg" alt="" width="300px">
+    <img src="./images/img7.jpg" alt="" width="300px">
+    <img src="./images/Corporate-Event.webp" alt="" width="300px">
+    <img src="./images/corporateparty1.jpg" alt="" width="300px">
+    <img src="./images/Event-Planning-Business-in-plan.jpg" alt="" width="300px">
+    <img src="./images/img1.jpg" alt="" width="300px">
+    <img src="./images/img1.webp" alt="" width="300px">
+    <img src="./images/img2.jpg" alt="" width="300px">
+    <img src="./images/img2.webp" alt="" width="300px">
+    <img src="./images/img3.jpg" alt="" width="300px">
+    <img src="./images/mrg4.jpg" alt="" width="300px">
+    <img src="./images/mrg3.jpeg" alt="" width="300px">
+    <img src="./images/mrg2.jpg" alt="" width="300px">
+    <img src="./images/mrg1.jpeg" alt="" width="300px">
+    <img src="./images/img6.jpg" alt="" width="300px">
+    <img src="./images/img5.jpeg" alt="" width="300px">
+    <img src="./images/img4.jpg" alt="" width="300px">
+</div>
+
+
+
+<!-- footer starts here -->
+
+    <footer style="margin-top: 10px;">
+        &copy; 2023 Dream Events. All rights reserved.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Book Event</title>
+
+    <style>
+        nav,
+        footer,
+        .active {
+            background: radial-gradient(circle at 10% 10%, #000b60 0%, #0b0b60 70%, #000833 100%) !important;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <h2>Dream Events</h2>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="./landingpage.html">Home</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./events.html">Events</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- contact-section -->
+
+    <section id="contact-section">
+        <h1 class="page-heading clr-white">CONTACT US</h1>
+
+        <!-- right card -->
+        <div class="register-container">
+            <div class="left-card">
+                <h2 class="sub-heading clr-white">
+                    BOOK YOUR EVENTS NOW!
+                </h2>
+                <p class="clr-white">No matter the occasion, Dream Events is here to make it magical while keeping
+                    sustainability in focus. Let’s create moments that matter – beautifully, affordably, and
+                    responsibly.</p>
+            </div>
+
+
+            <!-- card for form -->
+            <div class="form-card">
+                <form id="bookingForm">
+
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" oninput="nameHandler(event)" placeholder="Your name here">
+                        <small id="nameRegex"></small>
+                    </div>
+                    <script>
+                        function nameHandler(e){
+                            e.preventDefault();
+                            const namePattern = /^[A-Za-z]+([ '-][A-Za-z]+)*$/;
+                            const name=(e.target.value);
+                            if(!namePattern.test(name)){
+                                document.getElementById("nameRegex").style.color = "red";
+                                document.getElementById("nameRegex").innerHTML="Enter the valid name";
+                            }else{
+                                document.getElementById("nameRegex").innerHTML="";
+                            }
+                        } 
+                    </script>
+                    <div class="input-group">
+                        <label for="email">e-Mail</label>
+                        <input type="email" oninput="emailHandler(event)" name="email" id="email" placeholder="Your email here">
+                        <small id="emailRegex"></small>
+                    </div>
+                    <script>
+                        function emailHandler(e){
+                            e.preventDefault();
+                            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                            const email=(e.target.value);
+                            if(email!=""){
+                            if(!emailPattern.test(email)){
+                                document.getElementById("emailRegex").style.color = "red";
+                                document.getElementById("emailRegex").innerHTML="Enter the valid email";
+                            }else{
+                                document.getElementById("emailRegex").innerHTML="";
+                            }}else{
+                                document.getElementById("emailRegex").innerHTML="";
+                            }
+                        } 
+                    </script>
+                    <div class="input-group">
+                        <label for="phone">Contact Number</label>
+                        <input type="text" oninput="phoneHandler(event)" name="phone" id="phone" placeholder="98745614XX">
+                        <small id="phoneRegex"></small>
+                    </div>
+                    <script>
+                        function phoneHandler(e){
+                            e.preventDefault();
+                            const phonePattern = /\d{10}$/;
+                            const phone=(e.target.value);
+                            if(phone!=""){
+                            if(!phonePattern.test(phone)){
+                                document.getElementById("phoneRegex").style.color = "red";
+                                document.getElementById("phoneRegex").innerHTML="Enter the valid Phone Number";
+                            }else{
+                                document.getElementById("phoneRegex").innerHTML="";
+                            }
+                        }else{
+                            document.getElementById("phoneRegex").innerHTML="";
+                        }
+                    } 
+                    </script>
+                    <div class="input-group" id="dategroup">
+                        <div class="date">
+                            <label for="fromdate">Date From</label>
+                            <input type="date" name="fromdate" oninput="fromdateHandler(event)"  id="fromdate">
+                            <small id="fromdateRegex"></small>
+                        </div>
+                        <script>
+                            const currDate = new Date().toISOString().split('T')[0];
+                            console.log(today); 
+                            function fromdateHandler(e){
+                                e.preventDefault();
+                                const fromdate = (e.target.value);
+                                console.log(fromdate,currDate);
+                                if(fromdate<currDate){
+                                    document.getElementById("fromdateRegex").style.color = "red";
+                                    document.getElementById("fromdateRegex").innerHTML="Date should be greater";
+                                }else{
+                                    document.getElementById("fromdateRegex").innerHTML="";
+                                }
+                            }
+                            function todateHandler(e){
+                                e.preventDefault();
+                                const todate = (e.target.value);
+                                const beginDate=document.getElementById("fromdate").value;
+                                console.log(beginDate,todate);
+                                if(beginDate>todate){
+                                    document.getElementById("todateRegex").style.color = "red";
+                                    document.getElementById("todateRegex").innerHTML="Date should be greater than today";
+                                }else{
+                                    document.getElementById("todateRegex").innerHTML="";
+                                }
+                            }
+                        </script>
+                        <div class="date">
+                            <label for="todate">Date To</label>
+                            <input type="date" oninput="todateHandler(event)" name="todate" id="todate">
+                            <small id="todateRegex"></small>
+                        </div>
+                        
+                    </div>
+                    <div class="input-group" id="form-btngroup">
+                        
+                        <button class="input-btn submit" type="submit">Book</button>
+                        <input type="reset" value="Clear" class="input-btn clear">
+                        
+                    </div>
+                    
+                    
+                    
+                </form>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+    <!-- Contact Section -->
+
+    <div class="contact-card">
+        <h2>Contact Us</h2>
+        <p>Email: dreamevents@gmail.com</p>
+        <p>Instagram: @dream_events</p>
+        <p>Phone: +91 6996699696</p>
+        <p>Address: Dream Events, #45, 2nd Cross, Basavanagudi, Bangalore</p>
+    </div>
+
+    <footer>
+        &copy; 2023 Dream Events. All rights reserved.
+    </footer>
+
+    
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+    
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            fromdate: document.getElementById('fromdate').value,
+            todate: document.getElementById('todate').value
+        };
+    
+        const response = await fetch('http://localhost:5000/api/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+    
+        const result = await response.json();
+        alert(result.message);
+    });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="animation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+
+    <style>
+        #events-container div{
+            background-color: #FFB7DB;
+            border-radius: 0px 25px 25px 0px;
+            padding: 10px 15px;
+        transition: all 1s ease-in-out;
+        }
+        #events-container div:hover{   
+            background-color: azure;
+            box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.61);
+        }
+                
+        section{
+            padding: 20px;
+        }
+
+        p{
+            line-height: 1.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h2>Dream Events</h2>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="./landingpage.html">Home</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+
+    <h1 class="page-heading clr-darkpink">Events</h1>
+    <section class="bg-darkpink">
+        <div id="events-container"></div>
+    </section>
+    
+    <h2 class="sub-heading clr-darkpink">Frequently Asked Questions (FAQs)</h2>
+    <div id="faq-container"></div>
+
+    <script>
+        
+        const events = [
+            { heading: "Weddings", description: "At Dream Events, we turn your wedding dreams into reality! From stunning eco-friendly décor to seamless coordination, we ensure a stress-free and magical experience." },
+            { heading: "Birthday Parties", description: "Celebrate birthdays in style with Dream Events! Whether it’s a fun-filled kids’ party or an elegant milestone celebration, we bring creative themes and vibrant decorations." },
+            { heading: "Corporate Events", description: "From conferences to award nights, we manage corporate events with professionalism and creativity. We handle venue setup, branding, logistics, and entertainment." },
+            { heading: "Baby Showers", description: "Welcome the little bundle of joy with a beautifully curated baby shower! We specialize in soft, elegant, and eco-friendly décor, customized games, and delightful treats." },
+            { heading: "Engagements", description: "Celebrate the start of forever with a stunning engagement party! Our team crafts intimate and romantic settings, using elegant décor and enchanting lighting." },
+            { heading: "Theme Parties", description: "Bring your dream theme to life with Dream Events! From fairytale settings to Hollywood glamour, we create immersive experiences tailored to your vision." }
+        ];
+
+        const faqs = [
+            { question: "What types of events do you manage?", answer: "We specialize in a wide range of events, including weddings, birthday parties, corporate gatherings, baby showers, anniversaries, and themed parties." },
+            { question: "How do you ensure eco-friendly event planning?", answer: "We use biodegradable decorations, energy-efficient lighting, and zero-waste catering options to minimize environmental impact." },
+            { question: "Can you work within my budget?", answer: "Absolutely! We offer customized packages to fit different budgets while maintaining high-quality standards." },
+            { question: "Do you offer complete event planning services?", answer: "Yes! We handle everything from venue selection and theme design to catering, entertainment, and on-the-day coordination." },
+            { question: "How early should I book your services?", answer: "We recommend booking at least 1-2 months in advance for smaller events and 3-6 months in advance for weddings or large-scale events." },
+            { question: "Do you offer custom event themes?", answer: "Yes! Whether you want a fairytale wedding, a rustic baby shower, or a corporate gala, we customize every detail to match your theme." },
+            { question: "Can you manage last-minute event planning?", answer: "While we recommend booking in advance, we do accommodate last-minute requests based on availability." },
+            { question: "How can I get a quote for my event?", answer: "You can fill out our contact form on the website or reach out via phone, email, or WhatsApp." }
+        ];
+
+        const eventsContainer = document.getElementById("events-container");
+        events.forEach(event => {
+            const div = document.createElement("div");
+            div.classList.add("event");
+            div.innerHTML = `<span class="clr-white top-label">${event.heading}</span><p>${event.description}</p>`;
+            eventsContainer.appendChild(div);
+        });
+
+        const faqContainer = document.getElementById("faq-container");
+        faqs.forEach(faq => {
+            const faqItem = document.createElement("div");
+            faqItem.classList.add("faq-item");
+
+            const question = document.createElement("div");
+            question.classList.add("faq-question");
+            question.textContent = faq.question;
+            question.onclick = () => {
+                answer.style.display = answer.style.display === "none" ? "block" : "none";
+            };
+
+            const answer = document.createElement("div");
+            answer.classList.add("faq-answer");
+            answer.textContent = faq.answer;
+
+            faqItem.appendChild(question);
+            faqItem.appendChild(answer);
+            faqContainer.appendChild(faqItem);
+        });
+    </script>
+
+    <footer>
+        &copy; 2023 Dream Events. All rights reserved.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Reports</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background: #000b60;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Booking Report</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date From</th>
+                <th>Date To</th>
+            </tr>
+        </thead>
+        <tbody id="bookingTable"></tbody>
+    </table>
+
+    <script>
+        async function fetchBookings() {
+            const response = await fetch('http://localhost:5000/api/bookings');
+            const data = await response.json();
+
+            const tableBody = document.getElementById("bookingTable");
+            tableBody.innerHTML = "";
+
+            data.forEach(booking => {
+                const row = `<tr>
+                    <td>${booking.name}</td>
+                    <td>${booking.email}</td>
+                    <td>${booking.phone}</td>
+                    <td>${booking.fromdate}</td>
+                    <td>${booking.todate}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        fetchBookings();
+    </script>
+</body>
+</html>
