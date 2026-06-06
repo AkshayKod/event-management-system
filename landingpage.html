@@ -136,6 +136,14 @@
         </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <h2 class="sub-heading clr-darkpink">What Our Clients Say</h2>
+        <div class="reviews-container" id="reviewsContainer">
+            <p>Loading reviews...</p>
+        </div>
+    </section>
+
     <!-- Contact Section -->
 
     <div class="contact-card">
@@ -159,6 +167,40 @@
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="animation.js"></script>
+    
+    <script>
+        // Fetch and display reviews
+        async function fetchReviews() {
+            try {
+                const response = await fetch('http://localhost:5000/api/reviews');
+                const reviews = await response.json();
+                
+                const container = document.getElementById('reviewsContainer');
+                container.innerHTML = '';
+                
+                if (reviews.length === 0) {
+                    container.innerHTML = '<p>No reviews yet.</p>';
+                    return;
+                }
+                
+                reviews.forEach(review => {
+                    const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                    const card = `
+                        <div class="review-card">
+                            <h4>${review.name}</h4>
+                            <div class="rating">${stars}</div>
+                            <p>"${review.message}"</p>
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+            } catch (error) {
+                console.error("Error fetching reviews:", error);
+                document.getElementById('reviewsContainer').innerHTML = '<p>Could not load reviews at this time.</p>';
+            }
+        }
+        fetchReviews();
+    </script>
 </body>
 
 </html>

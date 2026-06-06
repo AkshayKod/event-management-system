@@ -9,25 +9,38 @@
 
 
     <style>
-        #events-container div{
-            background-color: #FFB7DB;
-            border-radius: 0px 25px 25px 0px;
-            padding: 10px 15px;
-        transition: all 1s ease-in-out;
+        #events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        #events-container div:hover{   
-            background-color: azure;
-            box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.61);
+        #events-container .event {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
-                
-        section{
-            padding: 20px;
+        #events-container .event:hover {   
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 77, 148, 0.15);
+        }
+        
+        #faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        p{
-            line-height: 1.5rem;
+        section {
+            padding: 60px 20px;
         }
 
+        p {
+            line-height: 1.8rem;
+            color: var(--text-light);
+        }
     </style>
 </head>
 <body>
@@ -43,8 +56,8 @@
     </nav>
     
 
-    <h1 class="page-heading clr-darkpink">Events</h1>
-    <section class="bg-darkpink">
+    <h1 class="page-heading" style="margin-top: 40px; color: var(--secondary-color);">Events</h1>
+    <section>
         <div id="events-container"></div>
     </section>
     
