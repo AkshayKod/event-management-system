@@ -1,5 +1,6 @@
 # Dream Events - Event Management System
 
+**Live Demo:** [Click here to view the Live Demo](#) *(Replace with your deployed link)*
 **Repository Link:** [https://github.com/AkshayKod/event-management-system](https://github.com/AkshayKod/event-management-system)
 Dream Events is a premium, eco-friendly event management platform designed to bring spectacular and sustainable celebrations to life. This full-stack web application allows users to explore services, book events, and read testimonials, while providing an administrative dashboard to manage bookings securely.
 
@@ -55,6 +56,12 @@ Dream Events is a premium, eco-friendly event management platform designed to br
    ```
 5. **Run the Application:**
    Open `landingpage.html` in your web browser (or use a tool like Live Server) to view the application.
+
+## 🚀 Deployment (Live Demo)
+To host this project live on the internet:
+1. **Frontend:** You can host the HTML/CSS/JS files for free on [GitHub Pages](https://pages.github.com/), [Vercel](https://vercel.com/), or [Netlify](https://www.netlify.com/).
+2. **Backend:** You can host the `server.js` Node API for free on platforms like [Render](https://render.com/) or [Railway](https://railway.app/).
+*(Note: Remember to update the `fetch` URLs in your frontend JavaScript from `localhost:5000` to your new deployed backend URL!)*
 
 ## 🛡️ Admin Dashboard Access
 On the first run, the backend will automatically generate a default administrator account.
