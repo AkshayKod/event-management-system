@@ -1,5 +1,6 @@
 # Dream Events - Event Management System
 
+**Repository Link:** [https://github.com/AkshayKod/event-management-system](https://github.com/AkshayKod/event-management-system)
 Dream Events is a premium, eco-friendly event management platform designed to bring spectacular and sustainable celebrations to life. This full-stack web application allows users to explore services, book events, and read testimonials, while providing an administrative dashboard to manage bookings securely.
 
 ## 🚀 Features
